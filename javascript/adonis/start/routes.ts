@@ -21,6 +21,10 @@
 import Route from '@ioc:Adonis/Core/Route'
 import ProvincesController from '../app/Controllers/Http/ProvincesController'
 
-Route.get('/provinces', async (ctx) => {
-  return new ProvincesController().index(ctx)
+Route.get('/provinces', async () => {
+  return new ProvincesController().index()
+})
+
+Route.get('/provinces/:id', async ({ params }) => {
+  return new ProvincesController().show(params.id)
 })
